@@ -1,25 +1,24 @@
-package services;
+package main;
 
-import contracts.IConnexion;
-import contracts.IVODService;
+import services.*;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-public class ClientRmi {
+public class Client {
 
-    private ClientRmi(){}
+    private Client(){}
 
     public static void main(String[] args) {
 
         try {
             // Getting the registry
-            Registry registry = LocateRegistry.getRegistry(2001);
-            IConnexion stubCNX = (IConnexion) registry.lookup("CNX");
+            Registry registry = LocateRegistry.getRegistry(2012);
+            IConnection stubCNX = (IConnection) registry.lookup("CNX");
 
             //make login / sig up
             ConnexionProcess connection = new ConnexionProcess(stubCNX);
-            IVODService vodService = connection.connect();
+            IVOD vodService = (IVOD) connection.connect();
 
             // view catalog and choose moovie
             MovieProcess movieProcess = new MovieProcess(vodService);

@@ -1,7 +1,5 @@
 package services;
 
-import contracts.IClientBox;
-
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 

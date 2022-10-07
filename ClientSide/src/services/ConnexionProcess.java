@@ -1,7 +1,5 @@
 package services;
 
-import contracts.IConnexion;
-import contracts.IVODService;
 import exceptions.SignUpException;
 import exceptions.WrongCredentialsException;
 
@@ -11,11 +9,11 @@ import static java.lang.System.exit;
 
 public class ConnexionProcess {
 
-    IConnexion stub;
+    IConnection stub;
 
     static Scanner sc = new Scanner(System.in);
 
-    public ConnexionProcess(IConnexion stub) {
+    public ConnexionProcess(IConnection stub) {
         this.stub = stub;
     }
 
@@ -23,7 +21,7 @@ public class ConnexionProcess {
      * sig up client side
      * @return vodService
      */
-    public IVODService signUp(){
+    public IVOD signUp(){
         try {
             System.out.println("\n*************** CREATION_ACCOUNT PAGE *************** \n");
             System.out.println("Enter :q to return to welcome page \n");
@@ -39,7 +37,7 @@ public class ConnexionProcess {
 
             if (stub.signUp(mail, pwd)) {
                 System.out.println("Account created successfully ! ");
-                return login();
+                return signIn();
             } else {
                 throw new SignUpException("An account already exist with this email\nPlease try again ...");
             }
@@ -54,7 +52,7 @@ public class ConnexionProcess {
      * login client side
      * @return vodService
      */
-    public IVODService login(){
+    public IVOD signIn(){
         try {
             System.out.println("\n**************************************************** LOGIN_ACCOUNT PAGE ****************************************************");
             System.out.println("Enter :q to return to welcome page \n");
@@ -68,18 +66,18 @@ public class ConnexionProcess {
             System.out.print("\tEnter your password : ");
             String pwdLogin = sc.next();
 
-            IVODService vodLoginStub = stub.login(mail, pwdLogin);
 
-            if (vodLoginStub != null) {
+
+            if (stub.signIn(mail, pwdLogin) != null) {
                 System.out.println("Login successfully");
-                return vodLoginStub;
+                return stub.signIn(mail, pwdLogin);
             } else {
                 throw new WrongCredentialsException("Error while login\nPlease try again ...");
             }
 
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
-            return login();
+            return signIn();
         }
 
     }
@@ -88,13 +86,13 @@ public class ConnexionProcess {
      * connect to vod platform (login/signup)
      * @return vodService
      */
-    public IVODService connect(){
+    public IVOD connect(){
         System.out.println("\n************************************************** WELCOME_PAGE VOD_PLATFORM **************************************************");
         System.out.println("\n1: CRATE AN ACCOUNT");
         System.out.println("2: LOGIN TO YOUR ACCOUNT");
         System.out.println("0: EXIT");
         int param ;
-        IVODService vodStub = null;
+        IVOD vodStub = null;
         System.out.print("\tPRESS HERE ==> ");
         try {
             param = sc.nextInt();
@@ -104,7 +102,7 @@ public class ConnexionProcess {
                     exit(0);
                 }
                 case 1 -> vodStub = signUp();
-                case 2 -> vodStub = login();
+                case 2 -> vodStub = signIn();
                 default -> {
                     System.out.println("Please write a number 0 or 1 or 2 !!!");
                     return connect();

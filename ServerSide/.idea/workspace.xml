@@ -2,13 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a91c401-8c2f-4eb8-a2c0-3cda55d55d05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/exceptions/SignUpFailed.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/IConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/IVODService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/MovieDesc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/MovieDescExtended.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ClientSide/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/parser/ClientParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/parser/MovieParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/parser/Parser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/VOD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/Date.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ClientSide/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientSide/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientSide/src/contracts/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientSide/src/services/Bill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientSide/src/contracts/IClientBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientSide/src/services/IClientBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientSide/src/contracts/IConnexion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientSide/src/contracts/IVODService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientSide/src/services/IVOD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientSide/src/contracts/MovieDesc.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientSide/src/services/MovieDesc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientSide/src/contracts/MovieDescExtended.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientSide/src/services/MovieDescExtended.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientSide/src/services/ClientBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientSide/src/services/ClientBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientSide/src/services/ClientRmi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientSide/src/main/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientSide/src/services/ConnexionProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientSide/src/services/ConnexionProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ClientSide/src/services/MovieProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ClientSide/src/services/MovieProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exceptions/InvalidCredentialsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exceptions/SignUpFailed.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/IConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/IConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/IVODService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/IVOD.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,13 +55,35 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="exceptions" />
       <recent name="services" />
+      <recent name="utils" />
+      <recent name="exceptions" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Server" />
+      <module name="ServerSide" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Server" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -54,7 +93,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1665085763098</updated>
-      <workItem from="1665085764315" duration="1624000" />
+      <workItem from="1665085764315" duration="20945000" />
     </task>
     <servers />
   </component>

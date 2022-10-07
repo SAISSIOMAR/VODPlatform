@@ -1,17 +1,18 @@
-package contracts;
+package services;
+
 
 import exceptions.SignUpException;
+
 import exceptions.WrongCredentialsException;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface IConnexion extends Remote {
+public interface IConnection extends Remote {
 
     boolean signUp(String mail, String pwd) throws SignUpException, RemoteException;
 
 
-    IVODService login(String mail, String pwd) throws WrongCredentialsException, RemoteException;
 
-
+    IVOD signIn(String mail, String pwd) throws WrongCredentialsException, RemoteException;
 }

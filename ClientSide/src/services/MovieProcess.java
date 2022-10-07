@@ -1,20 +1,16 @@
 package services;
 
-import contracts.Bill;
-import contracts.IVODService;
-import contracts.MovieDesc;
-
 import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
 
 public class MovieProcess {
-    IVODService stub;
+    IVOD stub;
 
     static Scanner sc = new Scanner(System.in);
 
-    public MovieProcess(IVODService stub) {
+    public MovieProcess(IVOD stub) {
         this.stub = stub;
     }
 

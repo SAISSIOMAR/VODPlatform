@@ -1,4 +1,6 @@
-package contracts;
+package services;
+
+import services.MovieDesc;
 
 import java.io.Serializable;
 import java.util.Arrays;
