@@ -17,10 +17,10 @@ public class ClientRMI  {
         try {
             // Getting the registry
             Registry registry = LocateRegistry.getRegistry(2001);
-            IConnection stubCNX = (IConnection) registry.lookup("CNX");
+            IConnextion stubCNX = (IConnextion) registry.lookup("CNX");
 
             //make login / sig up
-            ConnectionProcess connection = new ConnectionProcess(stubCNX);
+            ConnextionProcess connection = new ConnextionProcess(stubCNX);
             IVOD vodService = connection.connect();
 
             // view catalog and choose moovie

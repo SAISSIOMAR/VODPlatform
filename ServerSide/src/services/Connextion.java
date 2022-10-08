@@ -1,6 +1,6 @@
 package services;
 
-import contrats.IConnection;
+import contrats.IConnextion;
 import contrats.IVOD;
 import util.InfoDate;
 import util.client.Client;
@@ -14,11 +14,11 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
 
-public class Connection extends UnicastRemoteObject implements IConnection, Serializable {
+public class Connextion extends UnicastRemoteObject implements IConnextion, Serializable {
 
     private ClientList clientList;
 
-    public Connection() throws RemoteException {
+    public Connextion() throws RemoteException {
         clientList = new ClientList();
     }
 

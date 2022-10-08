@@ -10,7 +10,7 @@ import java.util.Scanner;
 import static java.lang.System.exit;
 
 /**
- * a class for movie choose and display client side
+ * a class for the client to choose a movie
  */
 public class MovieProcess {
 
@@ -24,27 +24,27 @@ public class MovieProcess {
 
     public void wantChooseMovie(){
         chooseMovie();
-        System.out.println("\nDo you want to see another movie ?");
-        System.out.print("yes, else will exit => ");
+        System.out.println("\nType Y to watch another movie, or type N to exit ");
+
         String rep = sc.next();
-        if(rep.equals("yes"))
+        if(rep.equals("Y"))
             wantChooseMovie();
-        else {
+        if(rep.equals("N")){
             exit(0);
         }
     }
 
     /**
-     * choose movie client side
+     * The client chooses a movie by its ISBN
      */
     public void chooseMovie() {
         try {
-            System.out.println("\nChoose your movie by his isbn : ");
+            System.out.println("\nPlease type the movie ISBN that you want to watch  : ");
             String movieChosen = sc.next();
             Bill b = stub.playmovie(movieChosen, new ClientBox());
-            System.out.println("\tHere is the bill of your movie :"+b);
+            System.out.println("\tBill :"+b);
         }catch (Exception e){
-            System.out.println("unavailble try again ...");
+            System.out.println("ISBN not valid, try again please .");
             chooseMovie();
         }
     }
@@ -53,17 +53,17 @@ public class MovieProcess {
      * view catag client side
      */
     public void viewCatalogue() {
-        System.out.println("\n**************************************************** WELCOME TO VOD-PLATFORM  ****************************************************\n ");
+        System.out.println("\n************************************ Welcome to the VOD platform ************************************\n ");
         try {
-            System.out.println("\nHere is all movies available ");
-            Thread.sleep(400);
+            System.out.println("\nThe movies that currently available are :  ");
+            Thread.sleep(250);
             List<MovieDesc> movies = stub.viewCatalog();
             int i =0;
             for(MovieDesc movie : movies){
-                Thread.sleep(400);
-                System.out.print("----------------------------------------------------------- Movie ["+(++i)+"] -----------------------------------------------------------");
+                Thread.sleep(250);
+                System.out.print("************************************ Movie ["+(++i)+"] ************************************");
                 System.out.print(movie);
-                System.out.println("---------------------------------------------------------------------------------------------------------------------------------\n");
+                System.out.println("************************************************************************************************************\n");
             }
         }catch (Exception exception){
             System.out.println(exception.getMessage());

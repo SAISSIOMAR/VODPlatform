@@ -9,7 +9,7 @@ import java.rmi.RemoteException;
 public interface IClientBox extends Remote {
 
     /**
-     * display a chunck of movie bytes
+     * stream a chunk of movie byts
      * @param chunck a byte array
      * @throws RemoteException
      */
