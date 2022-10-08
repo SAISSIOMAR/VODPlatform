@@ -1,7 +1,7 @@
 package services;
 
 import contrats.Bill;
-import contrats.IVODService;
+import contrats.IVOD;
 import contrats.MovieDesc;
 
 import java.util.List;
@@ -14,11 +14,11 @@ import static java.lang.System.exit;
  */
 public class MovieProcess {
 
-    IVODService stub;
+    IVOD stub;
 
     static Scanner sc = new Scanner(System.in);
 
-    public MovieProcess(IVODService stub) {
+    public MovieProcess(IVOD stub) {
         this.stub = stub;
     }
 

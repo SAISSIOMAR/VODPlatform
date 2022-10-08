@@ -21,7 +21,7 @@ public class ClientRMI  {
 
             //make login / sig up
             ConnectionProcess connection = new ConnectionProcess(stubCNX);
-            IVODService vodService = connection.connect();
+            IVOD vodService = connection.connect();
 
             // view catalog and choose moovie
             MovieProcess movieProcess = new MovieProcess(vodService);

@@ -1,10 +1,10 @@
 package services;
 
 import contrats.IClientBox;
-import contrats.IVODService;
+import contrats.IVOD;
 import contrats.Bill;
 import contrats.MovieDesc;
-import exceptions.MovieNotFoundException;
+import exceptions.IsbnNotFoundException;
 import util.InfoDate;
 import util.movie.MovieList;
 
@@ -14,25 +14,18 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * a class  for the vod service
- */
-public class VODService extends UnicastRemoteObject implements IVODService {
+
+public class VOD extends UnicastRemoteObject implements IVOD {
 
     MovieList movies = new MovieList();
-    private static VODService vodService_instance = null;
+    private static VOD vod_instance = null;
 
-    protected VODService() throws RemoteException {}
+    protected VOD() throws RemoteException {}
 
-    /**
-     * make an instance of vod service
-     * @return a VODService
-     * @throws RemoteException
-     */
-    public static VODService getInstance() throws RemoteException {
-        if (vodService_instance == null)
-            vodService_instance = new VODService();
-        return vodService_instance;
+    public static VOD getInstance() throws RemoteException {
+        if (vod_instance == null)
+            vod_instance = new VOD();
+        return vod_instance;
     }
 
     @Override
@@ -41,12 +34,12 @@ public class VODService extends UnicastRemoteObject implements IVODService {
     }
 
     @Override
-    public Bill playmovie(String isbn, IClientBox box) throws RemoteException, MovieNotFoundException {
+    public Bill playmovie(String isbn, IClientBox box) throws RemoteException, IsbnNotFoundException {
         MovieDesc movieToPlay = movies.findMovieByIsbn(isbn);
         byte[] movieBytes = movieToPlay.getFilmBytes();
         try {
             InfoDate.printInfo("Server received film : " + isbn + " to stram");
-            if (movieToPlay == null) throw new MovieNotFoundException("movie not found");
+            if (movieToPlay == null) throw new IsbnNotFoundException("movie not found");
             int chunk = 4; //chunk size to divide
             box.stream(Arrays.copyOfRange(movieBytes, 0, Math.min(movieBytes.length, chunk)));
             Thread th = new Thread(() -> {

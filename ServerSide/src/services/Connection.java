@@ -1,21 +1,19 @@
 package services;
 
 import contrats.IConnection;
-import contrats.IVODService;
+import contrats.IVOD;
 import util.InfoDate;
-import util.clent.Client;
-import util.clent.ClientList;
-import exceptions.InvalidCredentialsException;
-import exceptions.SignUpFailed;
-import util.clent.ClientParser;
+import util.client.Client;
+import util.client.ClientList;
+import exceptions.WrongCredentialsException;
+import exceptions.SignUpException;
+import util.client.ClientParser;
 
 import java.io.*;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-/**
- * a class for connection server side
- */
+
 public class Connection extends UnicastRemoteObject implements IConnection, Serializable {
 
     private ClientList clientList;
@@ -25,12 +23,12 @@ public class Connection extends UnicastRemoteObject implements IConnection, Seri
     }
 
     @Override
-    public boolean signUp(String mail, String pwd) throws SignUpFailed {
+    public boolean signUp(String mail, String pwd) throws SignUpException {
         try {
             if(mail.isEmpty() || pwd.isEmpty())
                 return false;
             else if(clientList.findMail(mail)){
-                throw new SignUpFailed("a client with mail "+ mail + " already exists");
+                throw new SignUpException("a client with mail "+ mail + " already exists");
             }
             ClientParser.writeDataClient(mail,pwd);
             clientList.getClients().add(new Client(mail,pwd));
@@ -44,13 +42,13 @@ public class Connection extends UnicastRemoteObject implements IConnection, Seri
     }
 
     @Override
-    public IVODService login(String mail, String pwd) throws InvalidCredentialsException, RemoteException {
+    public IVOD login(String mail, String pwd) throws WrongCredentialsException, RemoteException {
         try {
             if (!clientList.findMailPwd(mail, pwd)) {
-                throw new InvalidCredentialsException("account doesn't exist");
+                throw new WrongCredentialsException("account doesn't exist");
             }
             InfoDate.printInfo("The client " +mail+ " log in ");
-            return VODService.getInstance();
+            return VOD.getInstance();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }

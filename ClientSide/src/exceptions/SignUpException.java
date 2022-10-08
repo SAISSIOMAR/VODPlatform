@@ -3,8 +3,8 @@ package exceptions;
 /**
  * Exception when sign up failed
  */
-public class SignUpFailed extends Exception{
-    public SignUpFailed(String errorMessage) {
+public class SignUpException extends Exception{
+    public SignUpException(String errorMessage) {
         super(errorMessage);
     }
 }

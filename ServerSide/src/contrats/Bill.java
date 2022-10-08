@@ -3,9 +3,6 @@ package contrats;
 import java.io.Serializable;
 import java.math.BigInteger;
 
-/**
- * a class Bill representing the price of a movie
- */
 public class Bill implements Serializable {
     String movieName;
     BigInteger outrageousPrice;

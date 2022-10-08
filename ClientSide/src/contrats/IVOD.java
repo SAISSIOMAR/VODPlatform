@@ -1,6 +1,6 @@
 package contrats;
 
-import exceptions.MovieNotFoundException;
+import exceptions.IsbnNotFoundException;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * an interface for movies vodService
  */
-public interface IVODService extends Remote {
+public interface IVOD extends Remote {
     /**
      * retreive and return all movies available in database
      * @return list of movies
@@ -22,8 +22,8 @@ public interface IVODService extends Remote {
      * @param isbn the isbn of the moovie
      * @param box the IClientBox
      * @return a bill of the moovie choosen
-     * @throws MovieNotFoundException
+     * @throws IsbnNotFoundException
      */
-    Bill playmovie(String isbn, IClientBox box) throws RemoteException, MovieNotFoundException;
+    Bill playmovie(String isbn, IClientBox box) throws RemoteException, IsbnNotFoundException;
 
 }

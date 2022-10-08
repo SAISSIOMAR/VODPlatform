@@ -9,11 +9,7 @@ import java.util.List;
 
 public class Parser {
 
-    /**
-     *  read data from the file
-     * @param fileName the file name
-     * @return all the data
-     */
+
     public static List<String[]> readData(String fileName){
         List<String[]> data = new ArrayList<>();
         try{
@@ -30,11 +26,6 @@ public class Parser {
         return data;
     }
 
-    /**
-     * write data in the file
-     * @param fileName the file name
-     * @param data the data
-     */
     public static void writeData(String fileName, String... data){
         try{
             BufferedWriter bw = new BufferedWriter(new FileWriter("src/data/"+fileName,true));

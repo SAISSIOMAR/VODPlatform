@@ -1,10 +1,8 @@
-package util.clent;
+package util.client;
 
 import java.io.Serializable;
 
-/**
- * a class client having a mail and password
- */
+
 public class Client implements Serializable {
     private String mail;
     private String pwd;

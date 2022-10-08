@@ -2,9 +2,6 @@ package contrats;
 
 import java.io.Serializable;
 
-/**
- * a class representing movie
- */
 public class MovieDesc implements Serializable {
     String movieName;
     String isbn;

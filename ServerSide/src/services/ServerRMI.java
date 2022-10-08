@@ -5,9 +5,6 @@ import contrats.IConnection;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-/**
- * main class for server
- */
 public class ServerRMI  {
 
     public ServerRMI()  {
