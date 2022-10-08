@@ -1,61 +1,69 @@
 package services;
 
+import contrats.Bill;
+import contrats.IVODService;
+import contrats.MovieDesc;
+
 import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.System.exit;
 
+/**
+ * a class for movie choose and display client side
+ */
 public class MovieProcess {
-    IVOD stub;
+
+    IVODService stub;
 
     static Scanner sc = new Scanner(System.in);
 
-    public MovieProcess(IVOD stub) {
+    public MovieProcess(IVODService stub) {
         this.stub = stub;
     }
 
     public void wantChooseMovie(){
         chooseMovie();
-        System.out.println("\nType Y if you want to see antother Mover or type N to exit ");
-        String in = sc.next();
-        if(in.equals("Y"))
+        System.out.println("\nDo you want to see another movie ?");
+        System.out.print("yes, else will exit => ");
+        String rep = sc.next();
+        if(rep.equals("yes"))
             wantChooseMovie();
-        if(in.equals("N")) {
+        else {
             exit(0);
         }
     }
 
     /**
-     * The client choses a movie
+     * choose movie client side
      */
     public void chooseMovie() {
         try {
-            System.out.println("\nPlease choose the movie you want to see by its ISBN : ");
+            System.out.println("\nChoose your movie by his isbn : ");
             String movieChosen = sc.next();
             Bill b = stub.playmovie(movieChosen, new ClientBox());
-            System.out.println("\n The bill for the movie chosen  :"+b);
+            System.out.println("\tHere is the bill of your movie :"+b);
         }catch (Exception e){
-            System.out.println("Error occured , please try again");
+            System.out.println("unavailble try again ...");
             chooseMovie();
         }
     }
 
     /**
-     *  catag client side
+     * view catag client side
      */
     public void viewCatalogue() {
-        System.out.println("\n+++++++++THIS IS VOD-PLATFORM++++++++++\n ");
+        System.out.println("\n**************************************************** WELCOME TO VOD-PLATFORM  ****************************************************\n ");
         try {
-            System.out.println("\nThis is all the movies we have : ");
-            Thread.sleep(250);
-
-
+            System.out.println("\nHere is all movies available ");
+            Thread.sleep(400);
             List<MovieDesc> movies = stub.viewCatalog();
             int i =0;
             for(MovieDesc movie : movies){
-                Thread.sleep(250);
-                System.out.print("+++++++++++++++++++++++++++++++++++++ Movie ["+(++i)+"] +++++++++++++++++++++++++++++++++++++\n");
+                Thread.sleep(400);
+                System.out.print("----------------------------------------------------------- Movie ["+(++i)+"] -----------------------------------------------------------");
                 System.out.print(movie);
+                System.out.println("---------------------------------------------------------------------------------------------------------------------------------\n");
             }
         }catch (Exception exception){
             System.out.println(exception.getMessage());

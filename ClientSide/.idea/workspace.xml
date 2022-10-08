@@ -2,30 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bab08eee-7a83-475a-a074-de60c6b0a157" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ServerSide/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ServerSide/src/main/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ServerSide/src/parser/ClientParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ServerSide/src/parser/MovieParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ServerSide/src/parser/Parser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ServerSide/src/services/VOD.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ServerSide/src/utils/Date.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ServerSide/src/contrats/IClientBox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ServerSide/src/contrats/IConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contracts/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/Bill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contracts/IClientBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/IClientBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contracts/IConnexion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contracts/IVODService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/IVOD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contracts/MovieDesc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/MovieDesc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contracts/MovieDescExtended.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/MovieDescExtended.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ClientSide/services/IVOD.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exceptions/MovieNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/MovieNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exceptions/SignUpException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exceptions/WrongCredentialsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/Bill.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/ClientBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ClientBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ClientRmi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ConnexionProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ConnexionProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/ConnexionProcess.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/IClientBox.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/IConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/IVOD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/MovieDesc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/MovieDescExtended.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/MovieProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/MovieProcess.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ServerSide/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerSide/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ServerSide/src/exceptions/InvalidCredentialsException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ServerSide/src/exceptions/SignUpFailed.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ServerSide/src/services/IConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerSide/src/services/IConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ServerSide/src/services/IVODService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerSide/src/services/IVOD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/out/production/ServerSide/services/IClientBox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/out/production/ServerSide/services/IConnection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/out/production/ServerSide/services/IVOD.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/out/production/ServerSide/services/VOD.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/client/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/data/client.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/data/movie.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/exceptions/MovieNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerSide/src/exceptions/MovieNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/exceptions/SignUpException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/exceptions/WrongCredentialsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/main/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/parser/ClientParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/parser/MovieParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/parser/Parser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/services/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ServerSide/src/contrats/Bill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/services/IClientBox.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/services/IConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/services/IVOD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/services/MovieDesc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/services/MovieDescExtended.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/services/VOD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/utils/Connection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerSide/src/utils/Date.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,8 +66,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.ClientRMI">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Client" />
       <module name="ClientSide" />
@@ -64,8 +82,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ClientRMI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="services.ClientRMI" />
+      <module name="ClientSide" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ClientRMI" />
         <item itemvalue="Application.Client" />
       </list>
     </recent_temporary>
@@ -78,7 +110,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1665085811264</updated>
-      <workItem from="1665085812554" duration="12608000" />
+      <workItem from="1665085812554" duration="13301000" />
+      <workItem from="1665227529738" duration="410000" />
     </task>
     <servers />
   </component>
