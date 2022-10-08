@@ -10,15 +10,15 @@ import java.util.List;
 public class Parser {
 
 
-    public static List<String[]> readData(String fileName){
+    public static List<String[]> parseData(String fileName){
         List<String[]> data = new ArrayList<>();
         try{
-            BufferedReader br = new BufferedReader(new FileReader("src/database/"+fileName));
-            String readLine = br.readLine();
-            while ((readLine = br.readLine()) != null) {
+            BufferedReader reader = new BufferedReader(new FileReader("src/database/"+fileName));
+            String readLine = reader.readLine();
+            while ((readLine = reader.readLine()) != null) {
                 data.add(readLine.split(";"));
             }
-            br.close();
+            reader.close();
         }
         catch (Exception exception){
             System.out.println(exception.getMessage());
@@ -26,12 +26,12 @@ public class Parser {
         return data;
     }
 
-    public static void writeData(String fileName, String... data){
+    public static void addToFile(String fileName, String... data){
         try{
-            BufferedWriter bw = new BufferedWriter(new FileWriter("src/data/"+fileName,true));
-            bw.write(String.join(";",data));
-            bw.newLine();
-            bw.close();
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src/data/"+fileName,true));
+            writer.write(String.join(";",data));
+            writer.newLine();
+            writer.close();
         }
         catch (Exception exception){
             System.out.println(exception.getMessage());

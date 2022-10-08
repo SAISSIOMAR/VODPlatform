@@ -2,9 +2,8 @@ package services;
 
 import contrats.IConnection;
 import contrats.IVOD;
-import util.InfoDate;
+import util.Date;
 import util.client.Client;
-import util.client.ClientList;
 import exceptions.WrongCredentialsException;
 import exceptions.SignUpException;
 import util.client.ClientParser;
@@ -12,14 +11,15 @@ import util.client.ClientParser;
 import java.io.*;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
 
 
 public class Connection extends UnicastRemoteObject implements IConnection, Serializable {
 
-    private ClientList clientList;
+    private List<Client> clientList;
 
     public Connection() throws RemoteException {
-        clientList = new ClientList();
+        clientList = ClientParser.getClients();
     }
 
     @Override
@@ -27,16 +27,16 @@ public class Connection extends UnicastRemoteObject implements IConnection, Seri
         try {
             if(mail.isEmpty() || pwd.isEmpty())
                 return false;
-            else if(clientList.findMail(mail)){
-                throw new SignUpException("a client with mail "+ mail + " already exists");
+            else if(clientList.stream().anyMatch(c -> c.getMail().equals(mail))){
+                throw new SignUpException("a client with this mail  already exists");
             }
             ClientParser.writeDataClient(mail,pwd);
-            clientList.getClients().add(new Client(mail,pwd));
-            InfoDate.printInfo("A new account is created ");
+            clientList.add(new Client(mail,pwd));
+            Date.printInfo("A new account is created ");
             return true;
         }
-        catch (Exception exception){
-            System.out.println(exception.getMessage());
+        catch (Exception e){
+            System.out.println(e.getMessage());
             return false;
         }
     }
@@ -44,10 +44,10 @@ public class Connection extends UnicastRemoteObject implements IConnection, Seri
     @Override
     public IVOD login(String mail, String pwd) throws WrongCredentialsException, RemoteException {
         try {
-            if (!clientList.findMailPwd(mail, pwd)) {
+            if (clientList.stream().noneMatch(x-> x.getMail().equals(mail) && x.getPwd().equals(pwd))) {
                 throw new WrongCredentialsException("account doesn't exist");
             }
-            InfoDate.printInfo("The client " +mail+ " log in ");
+            Date.printInfo("The client " +mail+ " log in ");
             return VOD.getInstance();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());

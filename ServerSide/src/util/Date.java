@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 
-public class InfoDate {
+public class Date {
 
 
     public static void printInfo(String s){
