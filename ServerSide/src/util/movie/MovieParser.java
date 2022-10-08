@@ -9,17 +9,18 @@ import java.util.List;
 
 public class MovieParser {
 
-    public static List<MovieDesc> readDataMovie(){
+    public static List<MovieDesc> getMovies(){
         List<MovieDesc> movies= new ArrayList<>();
         try {
-            List<String[]> movieData = Parser.readData("movie.csv");
+            List<String[]> movieData = Parser.parseData("movie.csv");
             movieData.forEach(data -> {
                 if (data.length == 4) {
                     movies.add(new MovieDesc(data[0], data[1], data[2], data[3].getBytes()));
                 } else if (data.length == 5) {
                     movies.add(new MovieDescExtended(data[0], data[1], data[2], data[3].getBytes(), data[4].getBytes()));
                 } else {
-                    System.out.println("Error while parsing movie data !");
+
+                    System.out.println("Movie Parser Error !!!!!");
                 }
             });
         }

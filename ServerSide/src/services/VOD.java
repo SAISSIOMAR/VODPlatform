@@ -5,8 +5,7 @@ import contrats.IVOD;
 import contrats.Bill;
 import contrats.MovieDesc;
 import exceptions.IsbnNotFoundException;
-import util.InfoDate;
-import util.movie.MovieList;
+import util.movie.MovieParser;
 
 import java.math.BigInteger;
 import java.rmi.RemoteException;
@@ -17,10 +16,12 @@ import java.util.List;
 
 public class VOD extends UnicastRemoteObject implements IVOD {
 
-    MovieList movies = new MovieList();
+    private List<MovieDesc> movies;
     private static VOD vod_instance = null;
 
-    protected VOD() throws RemoteException {}
+    protected VOD() throws RemoteException {
+        movies = MovieParser.getMovies();
+    }
 
     public static VOD getInstance() throws RemoteException {
         if (vod_instance == null)
@@ -30,20 +31,22 @@ public class VOD extends UnicastRemoteObject implements IVOD {
 
     @Override
     public List<MovieDesc> viewCatalog() {
-        return movies.getMoviesDesc();
+        return movies;
+    }
+
+    private MovieDesc findMovieByIsbn(String isbn){
+        return movies.stream().filter(x->x.getIsbn().equals(isbn)).findFirst().get();
     }
 
     @Override
     public Bill playmovie(String isbn, IClientBox box) throws RemoteException, IsbnNotFoundException {
-        MovieDesc movieToPlay = movies.findMovieByIsbn(isbn);
+        MovieDesc movieToPlay = findMovieByIsbn(isbn);
         byte[] movieBytes = movieToPlay.getFilmBytes();
         try {
-            InfoDate.printInfo("Server received film : " + isbn + " to stram");
-            if (movieToPlay == null) throw new IsbnNotFoundException("movie not found");
+            if (movieToPlay == null) throw new IsbnNotFoundException("isbn not found");
             int chunk = 4; //chunk size to divide
             box.stream(Arrays.copyOfRange(movieBytes, 0, Math.min(movieBytes.length, chunk)));
             Thread th = new Thread(() -> {
-                System.out.println("launching thread...");
                 for (int i = chunk; i < movieBytes.length; i += chunk) {
                     try {
                         Thread.sleep(200);

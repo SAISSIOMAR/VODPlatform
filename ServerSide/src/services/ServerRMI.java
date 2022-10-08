@@ -15,7 +15,7 @@ public class ServerRMI  {
             IConnextion cnx = new Connextion();
             Registry registry = LocateRegistry.createRegistry(2001);
             registry.rebind("CNX", cnx);
-            System.out.println("Server is ready...");
+            System.out.println("Server is up");
         }
         catch(Exception e){
             System.out.println(e);

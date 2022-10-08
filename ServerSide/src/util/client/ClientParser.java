@@ -7,22 +7,22 @@ import java.util.List;
 
 public class ClientParser {
 
-    public static List<Client> readDataClient(){
+    public static List<Client> getClients(){
         List<Client> clients= new ArrayList<>();
-        List<String[]> clientData = Parser.readData("client.csv");
-        clientData.forEach(data -> {
-            if(data.length == 2) {
-                clients.add(new Client(data[0], data[1]));
+        List<String[]> clientData = Parser.parseData("client.csv");
+        int tmp = 1;
+        for (String[] record : clientData) {
+            if (record.length !=2){
+                System.err.println("Error in Client parsing !!!!");
             }
-            else {
-                System.out.println("Error while parsing client data !");
+            else{
+                clients.add(new Client(record[0], record[1]));
             }
-        });
+            tmp++;
+        }
         return clients;
     }
-
-
     public static void writeDataClient(String mail, String mdp){
-        Parser.writeData("client.csv",mail,mdp);
+        Parser.addToFile("client.csv",mail,mdp);
     }
 }
