@@ -22,8 +22,7 @@ public class Bill implements Serializable {
 
     @Override
     public String toString() {
-        return "\n\t\tBill => " +
-                "\n\t\tmovieName : " + movieName  +
+        return "\n\t\tmovieName : " + movieName +
                 "\n\t\toutrageousPrice :" + outrageousPrice + "€";
     }
 }

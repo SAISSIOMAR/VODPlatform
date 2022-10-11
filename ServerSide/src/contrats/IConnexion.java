@@ -7,7 +7,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 
-public interface IConnextion extends Remote {
+public interface IConnexion extends Remote {
 
     boolean signUp(String mail, String pwd) throws SignUpException, RemoteException;
 

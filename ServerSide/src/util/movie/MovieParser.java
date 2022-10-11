@@ -14,6 +14,7 @@ public class MovieParser {
         try {
             List<String[]> movieData = Parser.parseData("movie.csv");
             movieData.forEach(data -> {
+                System.out.println("thread launched ");
                 if (data.length == 4) {
                     movies.add(new MovieDesc(data[0], data[1], data[2], data[3].getBytes()));
                 } else if (data.length == 5) {

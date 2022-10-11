@@ -12,5 +12,5 @@ public interface IVOD extends Remote {
 
     List<MovieDesc> viewCatalog() throws RemoteException;
 
-    Bill playmovie(String isbn, IClientBox box) throws RemoteException, IsbnNotFoundException;
+    Bill playMovie(String isbn, IClientBox box) throws RemoteException, IsbnNotFoundException;
 }

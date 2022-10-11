@@ -28,7 +28,7 @@ public class Parser {
 
     public static void addToFile(String fileName, String... data){
         try{
-            BufferedWriter writer = new BufferedWriter(new FileWriter("src/data/"+fileName,true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src/database/"+fileName,true));
             writer.write(String.join(";",data));
             writer.newLine();
             writer.close();

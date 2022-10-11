@@ -39,28 +39,41 @@ public class VOD extends UnicastRemoteObject implements IVOD {
     }
 
     @Override
-    public Bill playmovie(String isbn, IClientBox box) throws RemoteException, IsbnNotFoundException {
+    public Bill playMovie(String isbn, IClientBox box) throws RemoteException, IsbnNotFoundException {
         MovieDesc movieToPlay = findMovieByIsbn(isbn);
         byte[] movieBytes = movieToPlay.getFilmBytes();
         try {
             if (movieToPlay == null) throw new IsbnNotFoundException("isbn not found");
-            int chunk = 4; //chunk size to divide
-            box.stream(Arrays.copyOfRange(movieBytes, 0, Math.min(movieBytes.length, chunk)));
-            Thread th = new Thread(() -> {
-                for (int i = chunk; i < movieBytes.length; i += chunk) {
-                    try {
-                        Thread.sleep(200);
-                        box.stream(Arrays.copyOfRange(movieBytes, i, Math.min(movieBytes.length, i + chunk)));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-            th.start();
-            th.join();
+            Thread thread = thread(movieBytes,box);
+            thread.start();
+            thread.join();
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
-        return new Bill(movieToPlay.getMovieName(), new BigInteger("50"));
+        return new Bill(movieToPlay.getMovieName(), new BigInteger("15"));
     }
+
+
+    /**
+     * @param movieBytes
+     * @param box
+     * @return Creating Thread
+     * @throws RemoteException
+     */
+    Thread thread(byte[] movieBytes,IClientBox box) throws RemoteException {
+        int chunk = 5;
+        box.stream(Arrays.copyOfRange(movieBytes, 0, Math.min(movieBytes.length, chunk)));
+        Thread th = new Thread(() -> {
+            for (int i = chunk; i < movieBytes.length; i += chunk) {
+                try {
+                    Thread.sleep(200);
+                    box.stream(Arrays.copyOfRange(movieBytes, i, Math.min(movieBytes.length, i + chunk)));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        return th;
+    }
+
 }

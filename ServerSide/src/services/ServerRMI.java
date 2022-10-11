@@ -1,6 +1,6 @@
 package services;
 
-import contrats.IConnextion;
+import contrats.IConnexion;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -12,9 +12,9 @@ public class ServerRMI  {
 
     public static void main(String[] args)  {
         try {
-            IConnextion cnx = new Connextion();
-            Registry registry = LocateRegistry.createRegistry(2001);
-            registry.rebind("CNX", cnx);
+            IConnexion cnx = new Connexion();
+            Registry registry = LocateRegistry.createRegistry(2012);
+            registry.rebind("vod", cnx);
             System.out.println("Server is up");
         }
         catch(Exception e){
